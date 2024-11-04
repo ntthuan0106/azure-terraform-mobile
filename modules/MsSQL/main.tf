@@ -25,3 +25,10 @@ resource "azurerm_mssql_database" "name" {
   sku_name= "GP_S_Gen5_2"
   auto_pause_delay_in_minutes = -1
 }
+
+resource "azurerm_mssql_firewall_rule" "example" {
+  name             = "FirewallRule1"
+  server_id        = azurerm_mssql_server.mssql_server.id
+  start_ip_address = "10.0.17.62"
+  end_ip_address   = "10.0.17.62"
+}
